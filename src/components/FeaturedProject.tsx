@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { MapPin, Route, ShieldCheck, TreePine } from 'lucide-react'
 import type { Property } from '../types/property'
 
@@ -19,6 +19,7 @@ export function FeaturedProject({
   const features = (property.features || []).slice(0, 6)
   const benefits = property.benefits || []
   const facilities = (property.nearbyFacilities || []).slice(0, 6)
+  const hasGallery = useMemo(() => (property.galleryImages || []).length > 0, [property.galleryImages])
 
   return (
     <section className="space-y-8 rounded-[32px] border border-border/60 bg-panel p-8 shadow-[0_24px_80px_rgba(15,23,42,0.08)] lg:p-12">
@@ -41,36 +42,57 @@ export function FeaturedProject({
         </span>
       </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <p className="text-xs uppercase tracking-[0.3em] text-slate">Site plan</p>
-            </div>
-            <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-3xl border border-border/50 bg-white shadow-inner md:h-[520px]">
-              <img
-                src={siteSrc}
-                alt="Site plan"
-                className="h-full w-full object-contain"
-                loading="lazy"
-                onError={() => setSiteSrc(sitePlanSrc)}
-              />
-            </div>
-          </div>
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <p className="text-xs uppercase tracking-[0.3em] text-slate">Location map</p>
-            </div>
-            <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-3xl border border-border/50 bg-white shadow-inner md:h-[520px]">
-              <img
-                src={mapSrc}
-                alt="Location map"
-                className="h-full w-full object-contain"
-                loading="lazy"
-                onError={() => setMapSrc(locationMapSrc)}
-              />
+      {hasGallery && (
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.3em] text-slate">Drone views</p>
+          <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-white shadow-inner">
+            <div className="flex snap-x snap-mandatory overflow-x-auto">
+              {(property.galleryImages || []).map((src, index) => (
+                <div
+                  key={src}
+                  className="relative h-[360px] min-w-full snap-center overflow-hidden border-r border-border/50 last:border-r-0 md:h-[440px]"
+                >
+                  <img src={src} alt={`Drone view ${index + 1}`} className="h-full w-full object-cover" loading="lazy" />
+                  <div className="absolute bottom-3 right-3 rounded-full bg-ink/70 px-3 py-1 text-xs font-semibold text-white">
+                    {index + 1} / {(property.galleryImages || []).length}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
+      )}
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-slate">Site plan</p>
+          </div>
+          <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-3xl border border-border/50 bg-white shadow-inner md:h-[520px]">
+            <img
+              src={siteSrc}
+              alt="Site plan"
+              className="h-full w-full object-contain"
+              loading="lazy"
+              onError={() => setSiteSrc(sitePlanSrc)}
+            />
+          </div>
+        </div>
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-slate">Location map</p>
+          </div>
+          <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-3xl border border-border/50 bg-white shadow-inner md:h-[520px]">
+            <img
+              src={mapSrc}
+              alt="Location map"
+              className="h-full w-full object-contain"
+              loading="lazy"
+              onError={() => setMapSrc(locationMapSrc)}
+            />
+          </div>
+        </div>
+      </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="space-y-3 rounded-2xl border border-border/60 bg-panel/80 p-4">
@@ -117,7 +139,7 @@ export function FeaturedProject({
           {connectivity.map((point) => (
             <span key={point.name} className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1">
               <Route className="h-3.5 w-3.5 text-gold" />
-              {point.name} • {point.distance}
+              {point.name} - {point.distance}
             </span>
           ))}
         </div>

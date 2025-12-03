@@ -3,22 +3,21 @@ import type { Property } from '../types/property'
 export const properties: Property[] = [
   {
     id: 'shirdi-project',
-    title: 'Shirdi Project – Sai Vatika',
+    title: 'Shirdi Project - Sai Vatika',
     tagline: 'Temple-front plotted community with curated infrastructure',
     location: 'Wet N Joy Road, Shirdi',
     city: 'Shirdi',
-    price: '₹18 Lakhs onwards',
+    price: 'Rs 18 Lakhs onwards',
     priceValueLakh: 18,
     category: 'Temple Township',
     status: 'Now Selling',
     isFlagship: true,
-    plotSizes: '1,800 – 3,200 sq.ft.',
+    plotSizes: '1,800 - 3,200 sq.ft.',
     acres: '32 acres',
     landUse: 'DTCP & MahaRERA registered',
     utilities: ['30 ft internal roads', '3-phase power', 'Central water lines', 'Perimeter security'],
-    // Swapped to align correct visuals: site plan (layout) + location map (vertical)
-    sitePlanImage: '/assets/location-map.png',
-    locationMapImage: '/assets/site-plan-current.png',
+    sitePlanImage: '/assets/site-plan-current.png',
+    locationMapImage: '/assets/location-map.png',
     description:
       'A serene plotted canvas off the Shirdi-Manmad highway that keeps Sai Baba Temple within daily reach while offering landscaped parks, meditation decks, and ready infrastructure for rapid construction.',
     highlights: [
@@ -44,7 +43,7 @@ export const properties: Property[] = [
     ],
     nearbyFacilities: [
       { name: 'International School', distance: '500 m' },
-      { name: 'Nagar–Manmad Highway (project approach)', distance: '300 m' },
+      { name: 'Nagar-Manmad Highway (project approach)', distance: '300 m' },
       { name: 'Sai Baba Temple', distance: '5 km' },
       { name: 'MIDC', distance: '500 m' },
       { name: 'Jangli Maharaj Ashram Hospital', distance: '500 m' },
@@ -76,7 +75,7 @@ export const properties: Property[] = [
       },
       {
         category: 'Highway',
-        name: 'Nagar–Manmad Highway',
+        name: 'Nagar-Manmad Highway',
         distance: '300 m',
         description: 'Signal-light access onto the main corridor with fast intercity connectivity.',
       },

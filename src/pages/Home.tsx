@@ -64,7 +64,7 @@ export function Home() {
         <SectionHeading
           eyebrow="Shirdi Project"
           title="Sai Meadows Enclave, Shirdi"
-          description="Our flagship plotted enclave near the Nagar–Manmad Highway with approvals, ready infrastructure, and temple-town connectivity."
+          description="Our flagship plotted enclave near the Nagar-Manmad Highway with approvals, ready infrastructure, and temple-town connectivity."
         />
         <FeaturedProject property={properties[0]} />
       </section>

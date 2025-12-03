@@ -15,8 +15,10 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link to="/" className="text-lg font-semibold text-ivory tracking-wide">
-          Sai Vatika <span className="text-gold">Real Estate</span>
+        <Link to="/" className="flex items-center gap-3 text-lg font-semibold text-ivory tracking-wide">
+          <span className="leading-none">
+            Sai Vatika <span className="text-gold">Real Estate</span>
+          </span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium text-slate md:flex">
           {links.map((link) => (

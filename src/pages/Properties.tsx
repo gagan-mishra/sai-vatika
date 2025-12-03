@@ -9,7 +9,7 @@ export function Properties() {
     <div className="space-y-10">
       <SectionHeading
         eyebrow="Project"
-        title="Shirdi Project – Sai Vatika"
+        title="Shirdi Project - Sai Vatika"
         description="A single focused launch with approvals, infrastructure in place, and a complete connectivity dossier."
       />
       <FeaturedProject property={project} />
