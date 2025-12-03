@@ -1,0 +1,9 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#FFFFFF" />
+  <rect x="80" y="60" width="1040" height="680" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="4" rx="24" />
+  <rect x="120" y="120" width="960" height="560" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="4" stroke-dasharray="14 10" rx="16" />
+  <text x="150" y="230" fill="#0F172A" font-size="26" font-weight="700">Site plan placeholder</text>
+  <text x="150" y="275" fill="#475467" font-size="18">Replace with: /public/assets/site-plan-current.png (PNG/JPG, landscape)</text>
+  <text x="150" y="330" fill="#0F172A" font-size="20" font-weight="600">Keep borders and legend visible.</text>
+  <text x="150" y="375" fill="#475467" font-size="18">Tip: clear labels for plots, roads, amenities, entrances.</text>
+</svg>

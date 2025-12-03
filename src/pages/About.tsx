@@ -1,0 +1,148 @@
+import { SectionHeading } from '../components/SectionHeading'
+import { CTASection } from '../components/CTASection'
+
+const pillars = [
+  {
+    title: 'Our Story',
+    description:
+      'Founded in 2014, Sai Vatika pivoted from luxury homes to land after mapping the growth of the Shirdi–Pune belt and the need for curated, approval-ready plots.',
+  },
+  {
+    title: 'Our Mission',
+    description:
+      'To help families and investors secure clear-title, infrastructure-ready plots backed by commute research, legal diligence, and on-ground support.',
+  },
+  {
+    title: 'Our Vision',
+    description:
+      'To be the most trusted plotted-development advisory in Maharashtra by staying rooted in transparency, data, and hospitality.',
+  },
+]
+
+const values = [
+  'Connectivity-first research',
+  'Transparent title diligence',
+  'Sahyadri corridor expertise',
+  'White-glove client support',
+]
+
+const directors = [
+  {
+    name: 'Prasad Mate (Kaka)',
+    title: 'Director',
+    email: 'prasadmate1313@gmail.com',
+    photo: 'https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    name: 'Kailas Katore',
+    title: 'Director',
+    email: 'kailaskatore82@gmail.com',
+    photo: 'https://images.unsplash.com/photo-1520340356584-8f852d41617a?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    name: 'Vishwanath Shetty',
+    title: 'Director',
+    email: 'hotelshettysswasthik@gmail.com',
+    photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    name: 'Sopan Bhadange',
+    title: 'Director',
+    email: 'sopanbhadange54@gmail.com',
+    photo: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80',
+  },
+]
+
+const businessDetails = [
+  { label: 'Business Name', value: 'SAI VATIKA' },
+  { label: 'Brand Line', value: 'Crafting Landmark' },
+  { label: 'Domain', value: 'saivatika4.com' },
+  { label: 'Phone', value: '+91 7798 221 313' },
+  { label: 'Email', value: 'contact@saivatika4.com' },
+]
+
+const businessSummary =
+  'Sai Vatika is a residential/farmhouse plotting project near the Nagar–Manmad Highway. Planned plots, internal roads, essential utilities, and clear documentation make it a reliable, organized land-buying experience suitable for both home-building and long-term appreciation.'
+
+export function About() {
+  return (
+    <div className="space-y-16">
+      <section className="space-y-10">
+        <SectionHeading
+          eyebrow="About"
+          title="Sai Vatika Real Estate"
+          description="A boutique collective of land strategists, mobility analysts, and hospitality specialists helping you evaluate plots with the same rigour as institutional investors."
+        />
+        <div className="grid gap-6 md:grid-cols-3">
+          {pillars.map((pillar) => (
+            <div key={pillar.title} className="rounded-2xl border border-border/60 bg-panel p-6 text-slate shadow-lg">
+              <h3 className="text-xl font-semibold text-ivory">{pillar.title}</h3>
+              <p className="mt-3 text-sm">{pillar.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <SectionHeading
+          eyebrow="Business summary"
+          title="Sai Vatika at a glance"
+          description={businessSummary}
+        />
+        <div className="grid gap-4 md:grid-cols-2">
+          {businessDetails.map((detail) => (
+            <div key={detail.label} className="rounded-2xl border border-border/60 bg-panel px-6 py-4 text-slate shadow-sm">
+              <p className="text-xs uppercase tracking-[0.3em] text-slate">{detail.label}</p>
+              <p className="text-lg font-semibold text-ivory">{detail.value}</p>
+            </div>
+          ))}
+          <div className="rounded-2xl border border-border/60 bg-panel px-6 py-4 text-slate shadow-sm md:col-span-2">
+            <p className="text-xs uppercase tracking-[0.3em] text-slate">What the project includes</p>
+            <ul className="mt-3 grid gap-2 text-sm text-ivory sm:grid-cols-2">
+              <li>Well-planned layout with gated compound</li>
+              <li>Nearby highway connectivity (Nagar–Manmad, Samruddhi)</li>
+              <li>Water and basic infrastructure readiness</li>
+              <li>Peaceful surroundings for weekend homes/farmhouses</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <SectionHeading
+          eyebrow="Values"
+          title="Our approach is rooted in"
+          description="Principles that ensure every engagement is thoughtful and bespoke."
+        />
+        <div className="grid gap-4 md:grid-cols-2">
+          {values.map((value) => (
+            <div key={value} className="rounded-2xl border border-border/60 bg-panel px-6 py-4 text-slate">
+              {value}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <SectionHeading eyebrow="Directors" title="Leadership & contact" />
+        <div className="grid gap-6 md:grid-cols-4">
+          {directors.map((member) => (
+            <div key={member.name} className="rounded-2xl border border-border/60 bg-panel p-6 text-center shadow-lg">
+              <img
+                src={member.photo}
+                alt={member.name}
+                className="mx-auto h-20 w-20 rounded-full object-cover"
+                loading="lazy"
+              />
+              <p className="mt-4 text-lg font-semibold text-ivory">{member.name}</p>
+              <p className="text-sm text-slate">{member.title}</p>
+              <p className="mt-2 text-xs text-slate">{member.email}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <CTASection />
+    </div>
+  )
+}

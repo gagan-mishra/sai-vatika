@@ -1,0 +1,12 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#FFFFFF" />
+  <rect x="24" y="24" width="1552" height="852" rx="28" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="4" />
+  <defs>
+    <clipPath id="planClip">
+      <rect x="40" y="40" width="1520" height="820" rx="22" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#planClip)">
+    <image href="site-plan-current.png" x="40" y="40" width="1520" height="820" preserveAspectRatio="xMidYMid meet" />
+  </g>
+</svg>
