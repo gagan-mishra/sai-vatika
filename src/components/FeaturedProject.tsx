@@ -22,14 +22,14 @@ export function FeaturedProject({
   const hasGallery = useMemo(() => (property.galleryImages || []).length > 0, [property.galleryImages])
 
   return (
-    <section className="space-y-8 rounded-[32px] border border-border/60 bg-panel p-8 shadow-[0_24px_80px_rgba(15,23,42,0.08)] lg:p-12">
+    <section className="space-y-8 rounded-3xl border border-border/60 bg-panel p-8 shadow-[0_30px_80px_rgba(0,0,0,0.06)] lg:p-12">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="space-y-3">
           <p className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-emerald">
             <ShieldCheck className="h-4 w-4 text-gold" />
             Current Project
           </p>
-          <h2 className="text-3xl font-semibold text-ivory">{property.title}</h2>
+          <h2 className="text-3xl font-semibold text-ink">{property.title}</h2>
           <p className="text-base text-slate">{property.tagline}</p>
           <p className="inline-flex items-center gap-2 text-sm text-emerald">
             <MapPin className="h-4 w-4 text-gold" />
@@ -68,7 +68,7 @@ export function FeaturedProject({
           <div className="flex items-center gap-3">
             <p className="text-xs uppercase tracking-[0.3em] text-slate">Site plan</p>
           </div>
-          <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-3xl border border-border/50 bg-white shadow-inner md:h-[520px]">
+          <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-2xl border border-border/60 bg-white shadow-inner md:h-[520px]">
             <img
               src={siteSrc}
               alt="Site plan"
@@ -82,7 +82,7 @@ export function FeaturedProject({
           <div className="flex items-center gap-3">
             <p className="text-xs uppercase tracking-[0.3em] text-slate">Location map</p>
           </div>
-          <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-3xl border border-border/50 bg-white shadow-inner md:h-[520px]">
+          <div className="flex h-[420px] items-center justify-center overflow-hidden rounded-2xl border border-border/60 bg-white shadow-inner md:h-[520px]">
             <img
               src={mapSrc}
               alt="Location map"
@@ -95,7 +95,7 @@ export function FeaturedProject({
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="space-y-3 rounded-2xl border border-border/60 bg-panel/80 p-4">
+        <div className="space-y-3 rounded-2xl border border-border/60 bg-panel p-4 shadow-sm">
           <p className="text-xs uppercase tracking-[0.3em] text-slate">Key features</p>
           <ul className="space-y-2 text-sm text-ivory">
             {features.map((feature) => (
@@ -106,7 +106,7 @@ export function FeaturedProject({
             ))}
           </ul>
         </div>
-        <div className="space-y-3 rounded-2xl border border-border/60 bg-panel/80 p-4">
+        <div className="space-y-3 rounded-2xl border border-border/60 bg-panel p-4 shadow-sm">
           <p className="text-xs uppercase tracking-[0.3em] text-slate">Investment benefits</p>
           <ul className="space-y-2 text-sm text-ivory">
             {benefits.map((benefit) => (
@@ -117,7 +117,7 @@ export function FeaturedProject({
             ))}
           </ul>
         </div>
-        <div className="space-y-3 rounded-2xl border border-border/60 bg-panel/80 p-4">
+        <div className="space-y-3 rounded-2xl border border-border/60 bg-panel p-4 shadow-sm">
           <p className="text-xs uppercase tracking-[0.3em] text-slate">Nearby facilities</p>
           <ul className="space-y-2 text-sm text-ivory">
             {facilities.map((facility) => (
@@ -137,8 +137,11 @@ export function FeaturedProject({
         <p className="text-xs uppercase tracking-[0.3em] text-slate">Connectivity snapshot</p>
         <div className="flex flex-wrap gap-2 text-xs text-slate">
           {connectivity.map((point) => (
-            <span key={point.name} className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1">
-              <Route className="h-3.5 w-3.5 text-gold" />
+            <span
+              key={point.name}
+              className="inline-flex items-center gap-1 rounded-full border border-chipborder bg-chip px-3 py-1 text-ink"
+            >
+              <Route className="h-3.5 w-3.5 text-emerald" />
               {point.name} - {point.distance}
             </span>
           ))}

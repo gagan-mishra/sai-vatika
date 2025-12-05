@@ -85,10 +85,10 @@ export function PropertyDetails() {
               {property.location}
             </p>
             <div className="space-y-2">
-              <h1 className="text-4xl font-semibold text-ivory">{property.title}</h1>
+              <h1 className="text-4xl font-semibold text-ink">{property.title}</h1>
               <p className="text-lg text-slate">{property.tagline}</p>
             </div>
-            <p className="text-2xl font-semibold text-ivory">{property.price}</p>
+            <p className="text-2xl font-semibold text-ink">{property.price}</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {infoItems.map((item) => (
@@ -106,11 +106,11 @@ export function PropertyDetails() {
           </div>
           {property.features && property.features.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-ivory">Project features</h3>
+              <h3 className="text-lg font-semibold text-ink">Project features</h3>
               <ul className="grid gap-2 text-sm text-ivory sm:grid-cols-2">
                 {property.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-gold" />
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -119,7 +119,7 @@ export function PropertyDetails() {
           )}
           {property.benefits && property.benefits.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-ivory">Investment benefits</h3>
+              <h3 className="text-lg font-semibold text-ink">Investment benefits</h3>
               <ul className="grid gap-2 text-sm text-ivory sm:grid-cols-2">
                 {property.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-2">
@@ -131,22 +131,25 @@ export function PropertyDetails() {
             </div>
           )}
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-ivory">Site highlights</h3>
+            <h3 className="text-lg font-semibold text-ink">Site highlights</h3>
             <div className="flex flex-wrap gap-3">
               {property.highlights.map((highlight) => (
-                <span key={highlight} className="rounded-full border border-border px-4 py-2 text-xs text-slate">
+                <span
+                  key={highlight}
+                  className="rounded-full border border-chipborder bg-chip px-4 py-2 text-xs text-ink"
+                >
                   {highlight}
                 </span>
               ))}
             </div>
           </div>
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-ivory">Connectivity & Access</h3>
+            <h3 className="text-lg font-semibold text-ink">Connectivity & Access</h3>
             <div className="grid gap-4 md:grid-cols-2">
               {property.connectivity.map((point) => (
-                <div key={point.name} className="rounded-2xl border border-border/60 p-4">
+                <div key={point.name} className="rounded-2xl border border-border/60 bg-panel p-4 shadow-sm">
                   <p className="text-xs uppercase tracking-[0.3em] text-emerald">{point.category}</p>
-                  <p className="mt-2 text-lg font-semibold text-ivory">{point.name}</p>
+                  <p className="mt-2 text-lg font-semibold text-ink">{point.name}</p>
                   <p className="text-sm text-slate">{point.distance}</p>
                   <p className="mt-2 text-sm text-slate">{point.description}</p>
                 </div>
@@ -155,11 +158,11 @@ export function PropertyDetails() {
           </div>
           {property.nearbyFacilities && property.nearbyFacilities.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-ivory">Nearby facilities</h3>
+              <h3 className="text-lg font-semibold text-ink">Nearby facilities</h3>
               <div className="grid gap-3 sm:grid-cols-2">
                 {property.nearbyFacilities.map((facility) => (
-                  <div key={facility.name} className="flex items-center justify-between rounded-2xl border border-border px-4 py-3 text-sm text-ivory">
-                    <span>{facility.name}</span>
+                  <div key={facility.name} className="flex items-center justify-between rounded-2xl border border-border bg-panel px-4 py-3 text-sm text-ivory">
+                    <span className="text-ink">{facility.name}</span>
                     <span className="text-slate">{facility.distance}</span>
                   </div>
                 ))}
@@ -252,13 +255,13 @@ export function PropertyDetails() {
               <button
                 type="submit"
                 disabled={status === 'loading' || status === 'success'}
-                className="w-full rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink shadow-glow transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink shadow-glow transition hover:scale-[1.01] hover:bg-ink hover:text-panel disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {status === 'loading' ? 'Booking...' : status === 'success' ? 'Booked' : 'Schedule Tour'}
               </button>
             </form>
             {status === 'success' && (
-              <p className="mt-4 text-center text-sm text-emerald">Thank you. Our team will confirm your visit shortly.</p>
+              <p className="mt-4 text-center text-sm text-emerald">Thank you. Your enquiry is sent. We will connect shortly.</p>
             )}
             {status === 'error' && <p className="mt-4 text-center text-sm text-red-500">{errorMessage}</p>}
           </div>

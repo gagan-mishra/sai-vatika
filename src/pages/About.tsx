@@ -56,9 +56,9 @@ const directors = [
 const businessDetails = [
   { label: 'Business Name', value: 'SAI VATIKA' },
   { label: 'Brand Line', value: 'Crafting Landmark' },
-  { label: 'Domain', value: 'saivatika4.com' },
+  { label: 'Domain', value: 'saivatika4.in' },
   { label: 'Phone', value: '+91 7798 221 313' },
-  { label: 'Email', value: 'contact@saivatika4.com' },
+  { label: 'Email', value: 'contact@saivatika4.in' },
 ]
 
 const businessSummary =

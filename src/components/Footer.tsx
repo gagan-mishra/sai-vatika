@@ -6,9 +6,7 @@ export function Footer() {
     <footer className="mt-20 border-t border-border/60 bg-panel">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:px-8 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
-          <p className="text-lg font-semibold text-ivory">
-            Sai Vatika <span className="text-gold">Real Estate</span>
-          </p>
+          <p className="text-lg font-semibold text-ivory">Sai Vatika</p>
           <p className="text-sm text-slate">
             Crafting Landmark - curated plotted developments with approvals, infrastructure readiness, and connectivity intelligence.
           </p>
@@ -39,7 +37,7 @@ export function Footer() {
             </p>
             <p className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-gold" />
-              contact@saivatika4.com
+              contact@saivatika4.in
             </p>
             <p className="flex items-center gap-3">
               <MapPin className="h-4 w-4 text-gold" />
@@ -54,7 +52,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-border/40 py-6 text-center text-xs text-slate">
-        © {new Date().getFullYear()} Sai Vatika Real Estate. Crafted with intent.
+        © {new Date().getFullYear()} Sai Vatika. Crafted with intent.
       </div>
     </footer>
   )

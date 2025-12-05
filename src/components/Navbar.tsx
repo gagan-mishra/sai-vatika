@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react'
 const links = [
   { label: 'Home', to: '/' },
   { label: 'Properties', to: '/properties' },
+  { label: 'Gallery', to: '/gallery' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
@@ -16,9 +17,7 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3 text-lg font-semibold text-ivory tracking-wide">
-          <span className="leading-none">
-            Sai Vatika <span className="text-gold">Real Estate</span>
-          </span>
+          <span className="leading-none">Sai Vatika</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium text-slate md:flex">
           {links.map((link) => (
@@ -34,7 +33,7 @@ export function Navbar() {
           ))}
           <Link
             to="/contact"
-            className="rounded-full bg-gold px-5 py-2 text-ink font-semibold shadow-glow transition hover:scale-[1.02]"
+            className="rounded-full bg-ink px-5 py-2 text-white font-semibold shadow-glow transition hover:scale-[1.02] hover:bg-[#0F281E]"
           >
             Enquire
           </Link>
@@ -60,7 +59,7 @@ export function Navbar() {
             ))}
             <Link
               to="/contact"
-              className="rounded-full bg-gold px-5 py-2 text-center font-semibold text-ink shadow-glow"
+              className="rounded-full bg-ink px-5 py-2 text-center font-semibold text-white shadow-glow transition hover:bg-[#0F281E]"
               onClick={() => setOpen(false)}
             >
               Enquire

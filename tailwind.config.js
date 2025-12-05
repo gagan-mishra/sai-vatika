@@ -4,22 +4,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        night: '#FEFCF7',
-        panel: '#FFFFFF',
-        gold: '#FACC15',
-        emerald: '#16A34A',
-        ivory: '#0F172A',
-        slate: '#475467',
-        border: '#E2E8F0',
-        ink: '#1E1B4B',
-        sky: '#E4F2FF',
-        sand: '#FFF6DB',
+        night: '#F7F7F2', // Soft ivory background
+        panel: '#FFFFFF', // Surfaces
+        gold: '#D9A441', // CTA gold
+        emerald: '#4D7C0F', // Secondary olive
+        ivory: '#1A1A1A', // Primary text
+        slate: '#475467', // Muted text
+        border: '#E1E5E0', // Soft border
+        ink: '#14532D', // Deep green primary
+        sky: '#EAE4D8', // Sand tint
+        sand: '#EAE4D8',
+        chip: '#EEF5EE',
+        chipborder: '#DDE7DD',
+        error: '#DC2626',
       },
       boxShadow: {
-        glow: '0 18px 40px rgba(148, 163, 184, 0.25)',
+        glow: '0 30px 80px rgba(0, 0, 0, 0.06)',
       },
       backgroundImage: {
-        'hero-gradient': 'linear-gradient(135deg, #FFFFFF 0%, #E4F2FF 45%, #FFF4CC 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #F7F7F2 0%, #F7F7F2 40%, #EAE4D8 100%)',
       },
     },
   },

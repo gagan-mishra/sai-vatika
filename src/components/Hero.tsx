@@ -6,7 +6,7 @@ const heroMedia = properties[0]
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden rounded-[32px] border border-border/40 bg-hero-gradient px-6 py-16 shadow-[0_40px_120px_rgba(2,6,23,0.9)] sm:px-10 lg:px-16">
+    <section className="relative overflow-hidden rounded-[32px] border border-border/60 bg-hero-gradient px-6 py-16 shadow-[0_40px_120px_rgba(0,0,0,0.06)] sm:px-10 lg:px-16">
       <div className="grid items-center gap-10 lg:grid-cols-[1.1fr,0.9fr]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -16,24 +16,22 @@ export function Hero() {
         >
           <div className="space-y-4">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald">Sai Vatika Shirdi Project</p>
-            <h1 className="text-4xl font-semibold text-ivory sm:text-5xl lg:text-6xl">
-              A single focus: temple-front plotted living with ready infrastructure.
-            </h1>
+            <h1 className="text-4xl font-semibold text-ink sm:text-5xl lg:text-6xl">Crafting Landmark.</h1>
             <p className="text-lg text-slate">
-              Explore our Shirdi Project - legal approvals, 30-ft internal roads, utilities in place, and a connectivity
-              dossier spanning highways, airport, rail, education, and healthcare anchors.
+              Temple-front plots with approvals, ready utilities, and concierge-led visits - designed for peaceful living and
+              confident investment.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
             <Link
               to="/properties"
-              className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink shadow-glow transition hover:scale-[1.02]"
+              className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:scale-[1.02] hover:bg-[#0F281E]"
             >
               View Properties
             </Link>
             <Link
               to="/contact"
-              className="rounded-full border border-border/80 px-6 py-3 text-sm font-semibold text-ivory transition hover:border-gold/60 hover:text-gold"
+              className="rounded-full border border-ink px-6 py-3 text-sm font-semibold text-ink transition hover:bg-[#F0F5F1] hover:border-ink"
             >
               Schedule a Visit
             </Link>
@@ -44,9 +42,9 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="relative overflow-hidden rounded-3xl border border-border/60 bg-panel shadow-2xl"
+          className="relative overflow-hidden rounded-2xl border border-border/60 bg-panel shadow-[0_30px_80px_rgba(0,0,0,0.06)]"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald/5 via-transparent to-gold/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-sand/40 via-transparent to-gold/15" />
           <img
             src={heroMedia.mainImage}
             alt={heroMedia.title}

@@ -55,7 +55,7 @@ const connectivitySpotlight = properties.map((property) => ({
 
 export function Home() {
   return (
-    <div className="space-y-20">
+    <div className="space-y-24">
       <Hero />
 
       <StatsStrip />
@@ -68,6 +68,7 @@ export function Home() {
         />
         <FeaturedProject property={properties[0]} />
       </section>
+
 
       <section className="space-y-10">
         <SectionHeading
@@ -112,10 +113,10 @@ export function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="rounded-2xl border border-border/50 bg-panel p-6 text-slate shadow-lg"
+              className="rounded-2xl border border-border/60 bg-panel p-6 text-slate shadow-[0_20px_60px_rgba(0,0,0,0.06)]"
             >
               <feature.icon className="h-10 w-10 text-gold" />
-              <h3 className="mt-4 text-xl font-semibold text-ivory">{feature.title}</h3>
+              <h3 className="mt-4 text-xl font-semibold text-ink">{feature.title}</h3>
               <p className="mt-2 text-sm text-slate">{feature.description}</p>
             </motion.div>
           ))}

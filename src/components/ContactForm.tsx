@@ -87,12 +87,12 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading' || status === 'success'}
-        className="w-full rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink shadow-glow transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:scale-[1.01] hover:bg-[#0F281E] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === 'loading' ? 'Sending...' : status === 'success' ? 'Sent' : 'Send Enquiry'}
       </button>
       {status === 'success' && (
-        <p className="text-center text-sm text-emerald">Thank you. Our concierge team will connect soon.</p>
+        <p className="text-center text-sm text-emerald">Thank you. Your enquiry is sent. We will connect shortly.</p>
       )}
       {status === 'error' && <p className="text-center text-sm text-red-500">{errorMessage}</p>}
     </form>
