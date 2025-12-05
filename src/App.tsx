@@ -12,9 +12,9 @@ import { Contact } from './pages/Contact'
 
 export function App() {
   return (
-    <div className="min-h-screen bg-night text-ivory">
+    <div className="relative min-h-screen bg-night text-ivory">
       <Navbar />
-      <main className="mx-auto max-w-7xl px-4 pb-28 pt-32 sm:px-6 lg:px-8">
+      <main className="relative mx-auto max-w-7xl px-4 pb-28 pt-32 sm:px-6 lg:px-8">
         <ScrollToTop />
         <WhatsAppButton />
         <Routes>

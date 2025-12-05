@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion'
-import { Shield, Compass, BadgeCheck, Route, MapPin } from 'lucide-react'
+import { Shield, Compass, BadgeCheck, Route } from 'lucide-react'
 import { Hero } from '../components/Hero'
 import { StatsStrip } from '../components/StatsStrip'
 import { SectionHeading } from '../components/SectionHeading'
 import { TestimonialCard } from '../components/TestimonialCard'
-import { CTASection } from '../components/CTASection'
 import { properties } from '../data/properties'
 import { FeaturedProject } from '../components/FeaturedProject'
 
@@ -45,8 +44,6 @@ const features = [
     description: 'Assistance with design & build, leasing, and compliance filings after registration.',
   },
 ]
-
-const connectivitySpotlight: never[] = []
 
 export function Home() {
   return (
