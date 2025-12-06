@@ -4,7 +4,7 @@ export const properties: Property[] = [
   {
     id: 'shirdi-project',
     title: 'Shirdi Project - Sai Vatika',
-    tagline: 'Temple-front plotted community with curated infrastructure',
+    tagline: 'Our aims to create a reliable and organized land-buying experience.',
     location: 'Nagar-Manmad Highway, Shirdi',
     city: 'Shirdi',
     price: 'Rs 35 Lakhs onwards',

@@ -1,6 +1,4 @@
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/contact@saivatika4.in'
-
-const MAILTO_ADDRESS = 'contact@saivatika4.in'
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/mishragagan85@gmail.com'
 
 export async function submitLead(payload: Record<string, string>) {
   const formData = new FormData()
@@ -13,9 +11,8 @@ export async function submitLead(payload: Record<string, string>) {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), 8000)
 
-  let response: Response
   try {
-    response = await fetch(FORM_ENDPOINT, {
+    const response = await fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -23,29 +20,20 @@ export async function submitLead(payload: Record<string, string>) {
       body: formData,
       signal: controller.signal,
     })
+    clearTimeout(timeout)
+
+    if (!response.ok) {
+      const message = await response.text().catch(() => 'Unable to submit form right now.')
+      throw new Error(message || 'Unable to submit form right now. Please try again in a moment.')
+    }
+
+    const json = await response.json().catch(() => ({}))
+    return { ok: true, ...json }
   } catch (error) {
     clearTimeout(timeout)
-    window.location.href = buildMailto(payload)
-    return { fallback: 'mailto', ok: true }
+    if ((error as Error).name === 'AbortError') {
+      throw new Error('Request timed out. Please try again.')
+    }
+    throw new Error('Unable to submit your request right now. Please try again shortly.')
   }
-
-  clearTimeout(timeout)
-
-  if (!response.ok) {
-    const message = await response.text().catch(() => 'Unable to submit form right now.')
-    throw new Error(message || 'Unable to submit form right now.')
-  }
-
-  const json = await response.json().catch(() => ({}))
-  return { ok: true, ...json }
-}
-
-function buildMailto(payload: Record<string, string>) {
-  const subject = encodeURIComponent('New enquiry - Sai Vatika')
-  const body = encodeURIComponent(
-    Object.entries(payload)
-      .map(([key, value]) => `${key}: ${value}`)
-      .join('\n'),
-  )
-  return `mailto:${MAILTO_ADDRESS}?subject=${subject}&body=${body}`
 }

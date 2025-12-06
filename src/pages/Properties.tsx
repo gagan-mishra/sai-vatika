@@ -10,7 +10,6 @@ export function Properties() {
       <SectionHeading
         eyebrow="Project"
         title="Shirdi Project - Sai Vatika"
-        description="A focused launch with approvals, infrastructure in place, and a complete connectivity dossier."
       />
       <FeaturedProject property={project} />
 

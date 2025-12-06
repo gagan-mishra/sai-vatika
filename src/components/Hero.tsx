@@ -17,9 +17,10 @@ export function Hero() {
           <div className="space-y-4">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald">Sai Vatika Shirdi Project</p>
             <h1 className="text-4xl font-semibold text-ink sm:text-5xl lg:text-6xl">Crafting Landmark.</h1>
-            <p className="text-lg text-slate">
-              Temple-front plots with approvals, ready utilities, and concierge-led visits - designed for peaceful living and
-              confident investment.
+            
+            <p className="text-base text-slate">
+              Residential/farmhouse plotting project located near the Nagar-Manmad Highway. The project offers planned plots,
+              internal roads, essential amenities, and a clear layout designed for long-term growth and investment.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">

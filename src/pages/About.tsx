@@ -1,5 +1,4 @@
 import { SectionHeading } from '../components/SectionHeading'
-import { CTASection } from '../components/CTASection'
 
 const pillars = [
   {
@@ -70,8 +69,7 @@ export function About() {
       <section className="space-y-10">
         <SectionHeading
           eyebrow="About"
-          title="Sai Vatika Real Estate"
-          description="A boutique collective of land strategists, mobility analysts, and hospitality specialists helping you evaluate plots with the same rigour as institutional investors."
+          title="Sai Vatika Properties"
         />
         <div className="grid gap-6 md:grid-cols-3">
           {pillars.map((pillar) => (
@@ -96,15 +94,7 @@ export function About() {
               <p className="text-lg font-semibold text-ivory">{detail.value}</p>
             </div>
           ))}
-          <div className="rounded-2xl border border-border/60 bg-panel px-6 py-4 text-slate shadow-sm md:col-span-2">
-            <p className="text-xs uppercase tracking-[0.3em] text-slate">What the project includes</p>
-            <ul className="mt-3 grid gap-2 text-sm text-ivory sm:grid-cols-2">
-              <li>Well-planned layout with gated compound</li>
-              <li>Nearby highway connectivity (Nagar–Manmad, Samruddhi)</li>
-              <li>Water and basic infrastructure readiness</li>
-              <li>Peaceful surroundings for weekend homes/farmhouses</li>
-            </ul>
-          </div>
+          
         </div>
       </section>
 
@@ -141,8 +131,6 @@ export function About() {
           ))}
         </div>
       </section>
-
-      <CTASection />
     </div>
   )
 }

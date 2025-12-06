@@ -8,7 +8,7 @@ export function Footer() {
         <div className="space-y-4">
           <p className="text-lg font-semibold text-ivory">Sai Vatika</p>
           <p className="text-sm text-slate">
-            Crafting Landmark - curated plotted developments with approvals, infrastructure readiness, and connectivity intelligence.
+            Crafting Landmark - focus on delivering legally clear and strategically located land options suitable for both home-building and future value appreciation .
           </p>
         </div>
         <div className="space-y-3">
@@ -46,9 +46,8 @@ export function Footer() {
           </div>
         </div>
         <div className="space-y-3">
-          <p className="text-sm font-semibold uppercase tracking-widest text-slate">Hours</p>
-          <p className="text-sm text-slate">Monday - Saturday: 9:00 AM - 8:00 PM</p>
-          <p className="text-sm text-slate">Sunday: By appointment only</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-slate">Availability</p>
+          <p className="text-sm text-slate">Always reachable — drop us a note anytime.</p>
         </div>
       </div>
       <div className="border-t border-border/40 py-6 text-center text-xs text-slate">

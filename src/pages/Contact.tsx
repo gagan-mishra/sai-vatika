@@ -14,7 +14,7 @@ export function Contact() {
       <SectionHeading
         eyebrow="Contact"
         title="Speak to our plot advisory desk"
-        description="Book a private consultation or request a connectivity dossier for Shirdi, Sangamner, Nashik or Pune."
+        description="Book a private consultation or request details for Shirdi, Sangamner, Nashik or Pune projects"
       />
       <div className="grid gap-10 lg:grid-cols-2">
         <ContactForm />

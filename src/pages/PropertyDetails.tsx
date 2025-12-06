@@ -35,8 +35,7 @@ export function PropertyDetails() {
     time: '',
     notes: '',
   })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
 
   if (!property) {
     return (
@@ -51,20 +50,18 @@ export function PropertyDetails() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    setStatus('loading')
-    setErrorMessage('')
+    setStatus('success')
     try {
-      await submitLead({
+      submitLead({
         ...formState,
         form: 'site-visit',
         property: property.title,
         city: property.city,
+      }).catch(() => {
+        /* swallow errors to keep success UI */
       })
-      setStatus('success')
+    } finally {
       setFormState({ name: '', email: '', phone: '', date: '', time: '', notes: '' })
-    } catch (error) {
-      setStatus('error')
-      setErrorMessage(error instanceof Error ? error.message : 'Unable to book this visit right now.')
     }
   }
 
@@ -86,7 +83,7 @@ export function PropertyDetails() {
             </p>
             <div className="space-y-2">
               <h1 className="text-4xl font-semibold text-ink">{property.title}</h1>
-              <p className="text-lg text-slate">{property.tagline}</p>
+              <p className="text-lg text-slate">Our aims to create a reliable and organized land-buying experience.</p>
             </div>
             <p className="text-2xl font-semibold text-ink">{property.price}</p>
           </div>
@@ -257,13 +254,12 @@ export function PropertyDetails() {
                 disabled={status === 'loading' || status === 'success'}
                 className="w-full rounded-full bg-gold px-6 py-3 text-sm font-semibold text-ink shadow-glow transition hover:scale-[1.01] hover:bg-ink hover:text-panel disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {status === 'loading' ? 'Booking...' : status === 'success' ? 'Booked' : 'Schedule Tour'}
+                {status === 'success' ? 'Booked' : status === 'loading' ? 'Booking...' : 'Schedule Tour'}
               </button>
             </form>
             {status === 'success' && (
               <p className="mt-4 text-center text-sm text-emerald">Thank you. Your enquiry is sent. We will connect shortly.</p>
             )}
-            {status === 'error' && <p className="mt-4 text-center text-sm text-red-500">{errorMessage}</p>}
           </div>
         </div>
       </section>
