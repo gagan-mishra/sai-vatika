@@ -60,15 +60,6 @@ const businessSummary =
   'Sai Vatika is a residential/farmhouse plotting project near the Nagar–Manmad Highway. Planned plots, internal roads, essential utilities, and clear documentation make it a reliable, organized land-buying experience suitable for both home-building and long-term appreciation.'
 
 export function About() {
-  const initialsFor = (fullName: string) =>
-    fullName
-      .split(' ')
-      .filter(Boolean)
-      .map((part) => part[0])
-      .join('')
-      .slice(0, 2)
-      .toUpperCase()
-
   return (
     <div className="space-y-16">
       <section className="space-y-10">
@@ -120,15 +111,17 @@ export function About() {
 
       <section className="space-y-6">
         <SectionHeading eyebrow="Directors" title="Leadership & contact" />
-        <div className="grid gap-6 md:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {directors.map((member) => (
-            <div key={member.name} className="rounded-2xl border border-border/60 bg-panel p-6 text-center shadow-lg">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-chip text-lg font-semibold text-ink">
-                {initialsFor(member.name)}
-              </div>
-              <p className="mt-4 text-lg font-semibold text-ivory">{member.name}</p>
+            <div
+              key={member.name}
+              className="rounded-2xl border border-border/60 bg-panel p-6 text-center shadow-[0_16px_50px_rgba(0,0,0,0.06)]"
+            >
+              <p className="text-lg font-semibold text-ivory">{member.name}</p>
               <p className="text-sm text-slate">{member.title}</p>
-              <p className="mt-2 text-xs text-slate">{member.email}</p>
+              <p className="mt-3 inline-flex items-center justify-center rounded-full border border-border/60 bg-chip px-3 py-1 text-xs text-ink">
+                {member.email}
+              </p>
             </div>
           ))}
         </div>

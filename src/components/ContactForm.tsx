@@ -1,38 +1,15 @@
-import { useState } from 'react'
-import type { FormEvent } from 'react'
-import { submitLead } from '../lib/forms'
-
-interface ContactFields {
-  name: string
-  email: string
-  phone: string
-}
+import { useForm, ValidationError } from '@formspree/react'
 
 export function ContactForm() {
-  const [fields, setFields] = useState<ContactFields>({
-    name: '',
-    email: '',
-    phone: '',
-  })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
+  const [state, handleSubmit] = useForm('mzznlroz')
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setStatus('success')
-    try {
-      submitLead({
-        ...fields,
-        form: 'contact',
-      }).catch(() => {
-        /* swallowed to keep UI success state */
-      })
-    } finally {
-      setFields({ name: '', email: '', phone: '' })
-    }
-  }
-
-  const updateField = (field: keyof ContactFields, value: string) => {
-    setFields({ ...fields, [field]: value })
+  if (state.succeeded) {
+    return (
+      <div className="rounded-3xl border border-border/60 bg-panel p-8 text-center text-slate shadow-[0_24px_80px_rgba(0,0,0,0.06)]">
+        <p className="text-lg font-semibold text-ink">Thank you</p>
+        <p className="mt-2 text-sm text-slate">Your enquiry is sent. We will connect shortly.</p>
+      </div>
+    )
   }
 
   return (
@@ -42,46 +19,64 @@ export function ContactForm() {
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
-          <label className="text-xs uppercase tracking-[0.3em] text-slate">Name</label>
+          <label className="text-xs uppercase tracking-[0.3em] text-slate" htmlFor="name">
+            Name
+          </label>
           <input
+            id="name"
+            name="name"
             type="text"
             required
-            value={fields.name}
-            onChange={(event) => updateField('name', event.target.value)}
             className="w-full rounded-xl border border-border bg-night/80 px-4 py-3 text-sm text-ivory outline-none ring-1 ring-transparent focus:ring-ink/50"
           />
         </div>
         <div className="space-y-2">
-          <label className="text-xs uppercase tracking-[0.3em] text-slate">Email</label>
+          <label className="text-xs uppercase tracking-[0.3em] text-slate" htmlFor="email">
+            Email
+          </label>
           <input
+            id="email"
+            name="email"
             type="email"
             required
-            value={fields.email}
-            onChange={(event) => updateField('email', event.target.value)}
             className="w-full rounded-xl border border-border bg-night/80 px-4 py-3 text-sm text-ivory outline-none ring-1 ring-transparent focus:ring-ink/50"
           />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
         </div>
       </div>
       <div className="space-y-2">
-        <label className="text-xs uppercase tracking-[0.3em] text-slate">Phone</label>
+        <label className="text-xs uppercase tracking-[0.3em] text-slate" htmlFor="phone">
+          Phone
+        </label>
         <input
+          id="phone"
+          name="phone"
           type="tel"
           required
-          value={fields.phone}
-          onChange={(event) => updateField('phone', event.target.value)}
           className="w-full rounded-xl border border-border bg-night/80 px-4 py-3 text-sm text-ivory outline-none ring-1 ring-transparent focus:ring-ink/50"
         />
       </div>
+      <div className="space-y-2">
+        <label className="text-xs uppercase tracking-[0.3em] text-slate" htmlFor="message">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={3}
+          className="w-full rounded-xl border border-border bg-night/80 px-4 py-3 text-sm text-ivory outline-none ring-1 ring-transparent focus:ring-ink/50"
+        />
+        <ValidationError prefix="Message" field="message" errors={state.errors} />
+      </div>
+      <input type="hidden" name="_subject" value="Sai Vatika website enquiry" />
       <button
         type="submit"
-        disabled={status === 'loading' || status === 'success'}
+        disabled={state.submitting}
         className="w-full rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:scale-[1.01] hover:bg-[#0F281E] disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === 'success' ? 'Sent' : status === 'loading' ? 'Sending...' : 'Send Enquiry'}
+        {state.submitting ? 'Sending...' : 'Send Enquiry'}
       </button>
-      {status === 'success' && (
-        <p className="text-center text-sm text-emerald">Thank you. Your enquiry is sent. We will connect shortly.</p>
-      )}
+      <ValidationError errors={state.errors} />
     </form>
   )
 }

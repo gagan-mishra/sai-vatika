@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Download } from 'lucide-react'
 import { properties } from '../data/properties'
 
 const heroMedia = properties[0]
@@ -36,6 +37,16 @@ export function Hero() {
             >
               Schedule a Visit
             </Link>
+            <a
+              href="/assets/sai-vatika-brochure.pdf"
+              download
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-ink transition hover:scale-[1.02] hover:border-ink hover:bg-[#F7F7F2]"
+            >
+              <Download className="h-4 w-4" />
+              Download Brochure
+            </a>
           </div>
         </motion.div>
 

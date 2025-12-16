@@ -81,7 +81,7 @@ export function Footer() {
               <Linkedin className="h-4 w-4" /> LinkedIn
             </a>
             <a
-              href="https://www.saivatika4.in/?utm_source=ig&utm_medium=social&utm_content=link_in_bio"
+              href="https://www.saivatika4.in"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-2 hover:border-gold/80 hover:text-gold"
