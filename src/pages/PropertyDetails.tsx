@@ -2,11 +2,6 @@ import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { MapPin, Ruler, Layers, ShieldCheck, Droplet, BadgePercent, Calendar, Clock } from 'lucide-react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import { properties } from '../data/properties'
 import { PropertyCard } from '../components/PropertyCard'
 import { SectionHeading } from '../components/SectionHeading'
@@ -163,7 +158,10 @@ export function PropertyDetails() {
               <h3 className="text-lg font-semibold text-ink">Nearby facilities</h3>
               <div className="grid gap-3 sm:grid-cols-2">
                 {property.nearbyFacilities.map((facility) => (
-                  <div key={facility.name} className="flex items-center justify-between rounded-2xl border border-border bg-panel px-4 py-3 text-sm text-ivory">
+                  <div
+                    key={facility.name}
+                    className="flex items-center justify-between rounded-2xl border border-border bg-panel px-4 py-3 text-sm text-ivory"
+                  >
                     <span className="text-ink">{facility.name}</span>
                     <span className="text-slate">{facility.distance}</span>
                   </div>
@@ -173,61 +171,15 @@ export function PropertyDetails() {
           )}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-ivory">Gallery</h3>
-            <div className="relative -mx-2 sm:-mx-4">
-              <Swiper
-                modules={[Navigation, Pagination]}
-                spaceBetween={14}
-                slidesPerView={1.05}
-                loop
-                centeredSlides
-                navigation={{ prevEl: '.property-gallery-prev', nextEl: '.property-gallery-next' }}
-                pagination={{ el: '.property-gallery-pagination', clickable: true }}
-                breakpoints={{
-                  640: { slidesPerView: 1.5, spaceBetween: 16 },
-                  1024: { slidesPerView: 2.3, spaceBetween: 18 },
-                }}
-                className="pb-10"
-              >
-                {property.galleryImages.map((image) => (
-                  <SwiperSlide key={image} className="!h-auto">
-                    <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-panel shadow-[0_16px_70px_rgba(0,0,0,0.08)]">
-                      <div
-                        className="absolute inset-0 scale-110 blur-[32px] opacity-75"
-                        style={{
-                          backgroundImage: `url(${image})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                        }}
-                        aria-hidden
-                      />
-                      <img
-                        src={image}
-                        alt={property.title}
-                        className="relative z-10 h-40 w-full object-cover sm:h-48"
-                        loading="lazy"
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-1 sm:px-2">
-                <button
-                  className="property-gallery-prev pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-night/90 text-ink shadow-lg transition hover:scale-105 hover:bg-white"
-                  aria-label="Previous property gallery image"
+            <div className="grid gap-4 sm:grid-cols-3">
+              {property.galleryImages.map((image) => (
+                <div
+                  key={image}
+                  className="overflow-hidden rounded-2xl border border-border/60 bg-panel shadow-[0_16px_70px_rgba(0,0,0,0.08)]"
                 >
-                  ‹
-                </button>
-                <button
-                  className="property-gallery-next pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full bg-night/90 text-ink shadow-lg transition hover:scale-105 hover:bg-white"
-                  aria-label="Next property gallery image"
-                >
-                  ›
-                </button>
-              </div>
-
-              <div className="property-gallery-pagination absolute inset-x-0 -bottom-1 flex justify-center gap-2" />
+                  <img src={image} alt={property.title} className="h-40 w-full object-cover sm:h-48" loading="lazy" />
+                </div>
+              ))}
             </div>
           </div>
         </div>
