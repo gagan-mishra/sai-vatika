@@ -39,7 +39,7 @@ const directors = [
   {
     name: 'Vishwanath Shetty',
     title: 'Director',
-    email: 'hotelshettysswasthik@gmail.com',
+    email: 'hotelshettysswastik@gmail.com',
   },
   {
     name: 'Sopan Bhadange',
